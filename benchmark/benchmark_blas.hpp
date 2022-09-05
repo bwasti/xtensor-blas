@@ -44,8 +44,8 @@ namespace xt
         inline void init_xtensor_benchmark(V& lhs, V& rhs,
                                            std::size_t size0, size_t size1)
         {
-            lhs.reshape({ size0, size1 });
-            rhs.reshape({ size0, size1 });
+            lhs.resize({ size0, size1 });
+            rhs.resize({ size0, size1 });
             init_benchmark_data(lhs, rhs, size0, size1);
         }
 
@@ -95,7 +95,7 @@ namespace xt
             }
         }
 
-        BENCHMARK_TEMPLATE(benchmark_dot, xt::xtensor<double, 2>)->Range(32, 32<<3);
+        BENCHMARK_TEMPLATE(benchmark_dot, xt::xtensor<float, 2>)->Range(32, 1<<13);
         BENCHMARK_TEMPLATE(benchmark_transpose_dot, xt::xtensor<double, 2>)->Range(32, 32<<3);
         BENCHMARK_TEMPLATE(benchmark_transpose_with_assign_dot, xt::xtensor<double, 2>)->Range(32, 32<<3);
     }

@@ -99,7 +99,7 @@ if (CXXBLAS_DEBUG)
 endif()
 
 OPTION(BUILD_TESTS "xtensor-blas test suite" OFF)
-OPTION(BUILD_BENCHMARK "xtensor-blas test suite" OFF)
+OPTION(BUILD_BENCHMARKS "xtensor-blas test suite" OFF)
 
 OPTION(DOWNLOAD_GTEST "download gtest and build from source" OFF)
 OPTION(DOWNLOAD_GBENCHMARK "download google benchmark and build from source" OFF)

@@ -23,8 +23,10 @@ include(CheckCXXCompilerFlag)
 string(TOUPPER "${CMAKE_BUILD_TYPE}" U_CMAKE_BUILD_TYPE)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Intel")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native -Wunused-parameter -Wextra -Wreorder")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wunused-parameter -Wextra -Wreorder")
     CHECK_CXX_COMPILER_FLAG("-std=c++14" HAS_CPP14_FLAG)
+    message(WARNING "FOUND THIS SHIT ${CMAKE_CXX_COMPILER} ${HAS_CPP14_FLAG}")
+    set(HAS_CPP14_FLAG 1)
 
     if (HAS_CPP14_FLAG)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
@@ -113,6 +115,7 @@ if (HAVE_CBLAS)
     endif()
     add_definitions(-DHAVE_CBLAS=1 -DWITH_OPENBLAS=1)
 endif()
+set(BLAS_LIBRARIES "-framework Accelerate")
 
 include_directories(${XTENSOR_INCLUDE_DIR} ${GBENCHMARK_INCLUDE_DIRS})
 
