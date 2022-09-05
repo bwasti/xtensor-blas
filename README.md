@@ -1,3 +1,13 @@
+Build for M1
+
+```
+CXX=clang++ cmake -B build -D CMAKE_INSTALL_PREFIX=$HOME/code/usr -DBUILD_BENCHMARKS=ON -DDOWNLOAD_GBENCHMARK=ON -DRUN_HAVE_STD_REGEX=0
+make benchmark_xtensor -Cbuild
+./build/benchmark/benchmark_xtensor
+```
+
+Only hits like 1.5TFlops, which is not great (maybe 75% of the 2TFlops accelerate hits on its own?)
+
 # ![xtensor](docs/source/xtensor-blas.svg)
 
 [![Travis](https://travis-ci.org/xtensor-stack/xtensor-blas.svg?branch=master)](https://travis-ci.org/xtensor-stack/xtensor-blas)
